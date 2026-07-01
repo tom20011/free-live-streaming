@@ -1,0 +1,8 @@
+name = "free-live-streaming"
+main = "src/index.js"
+compatibility_date = "2026-06-30"
+
+[vars]
+HUYA_USE_FLV = "true"
+DOUYU_USE_HLS = "false"
+BILI_USE_BACKUP_CDN = "true"
