@@ -1,4 +1,8 @@
 {
+  "name": "free-live-worker",
+  "private": true,
+  "version": "1.0.0",
+  
   "dependencies": {
     "blueimp-md5": "^2.19.0"
   }
