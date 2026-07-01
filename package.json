@@ -1,9 +1,15 @@
 {
-  "name": "free-live-worker",
+  "name": "free-live-streaming-worker",
   "private": true,
   "version": "1.0.0",
-  
+
+  "type": "module",
+
   "dependencies": {
     "blueimp-md5": "^2.19.0"
+  },
+
+  "devDependencies": {
+    "wrangler": "^4.0.0"
   }
 }
