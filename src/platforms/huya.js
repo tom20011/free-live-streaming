@@ -29,6 +29,7 @@ function skipWhitespace(str, pos) {
 }
 
 function _buildHuyaUrl(streamUrl, sStreamName, streamSuffix, antiCode, uid) {
+  streamUrl = streamUrl.replace(/^http:/, 'https:');
   const ac = antiCode.replace(/&amp;/g, '&');
   const acParams = new URLSearchParams(ac);
   const wsTime = acParams.get('wsTime');
@@ -86,7 +87,8 @@ async function _getHuyaStreamUrlFromApi(roomId, useFlv) {
     const info = hasBitRate
       ? list.reduce((a, b) => (b.iBitRate || 0) > (a.iBitRate || 0) ? b : a)
       : list[list.length - 1];
-    const streamUrl = useFlv ? info.sFlvUrl : info.sHlsUrl;
+    let streamUrl = useFlv ? info.sFlvUrl : info.sHlsUrl;
+    streamUrl = streamUrl.replace(/^http:/, 'https:');
     const streamSuffix = useFlv ? info.sFlvUrlSuffix : info.sHlsUrlSuffix;
     const sStreamName = info.sStreamName;
     const antiCode = useFlv ? (info.sFlvAntiCode || info.sHlsAntiCode) : info.sHlsAntiCode;
